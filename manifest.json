@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+
+  "name": "Life",
+  "description": "Clear matrix of your life.",
+  "version": "1.0",
+
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+}

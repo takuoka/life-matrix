@@ -1,0 +1,77 @@
+$boxMargin: 8px;
+$yearGuideBasis: 4px;
+$weekGuideBasis: 6px;
+$guideFontSize: 6pt;
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+#box {
+	width: calc( 100% - #{$boxMargin} );
+	height: calc( 100% - #{$boxMargin} );
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+#box .year {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+	flex-grow: 1;
+	flex-shrink: 1;
+
+	.week {
+		flex-grow: 1;
+		flex-shrink: 1;
+	}
+	.week:not(.guideWeek) {
+		border: 1px solid white;
+		background-color: rgba(22,0,30,0.3);
+	}
+	.passedWeek {
+		background-color: rgba(22,0,30,0.9) !important;
+	}
+	.currentWeek {
+		background-color: rgba(220,0,30,0.9) !important;		
+	}
+
+	.guideWeek {
+		border: 1px solid rgba(0,0,0,0);
+	}
+	.yearGuideWeek {
+		flex-basis: $yearGuideBasis;
+	}
+	.weekGuideWeek {
+	}
+
+	// cell displays number
+	.weekGuide, .yearGuide {
+		font-size: $guideFontSize;
+	}
+	.yearGuide {
+		position: absolute;
+		display: inline;
+		width: calc(((100% - #{$yearGuideBasis} - #{$boxMargin}) / 52) + 2px);
+		height: calc(((100% - #{$weekGuideBasis} - #{$boxMargin}) / 81) - 2px);// TODO: Append by JS
+		line-height: calc(((100% - #{$weekGuideBasis} - #{$boxMargin}) / 81) - 2px);// TODO: Append by JS
+		margin: auto 0;
+		margin-top: calc((((100% - #{$weekGuideBasis} - #{$boxMargin}) / 81) - 2px) / 2);// TODO: Append by JS
+		text-align: center;
+	    vertical-align: middle;
+	}
+	.weekGuide {
+		position: absolute;
+		width: calc(((100% - #{$yearGuideBasis}) / 52) - 2px);
+		text-align: center;
+	}
+}
+.year_-1 {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: $weekGuideBasis;
+}
