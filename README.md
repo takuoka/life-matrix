@@ -13,3 +13,5 @@ Chrome extension of new-tab.
 - [ ] ask birthday & lifespan
 - [ ] improve design
 - [ ] publish to chrome web app store
+- [ ] custom color
+- [ ] custom span
