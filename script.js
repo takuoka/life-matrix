@@ -2,22 +2,48 @@ function print(str) { console.log(str); }
 function getBox() { return document.getElementById("box"); }
 function createDiv() { return document.createElement("div"); }
 var numOfWeeksInAYear = parseInt(365 / 7);
-var lifespan = 80;
+var lifespan = 65;
 var birthday = new Date();
 
 window.onload = function() {
+	var storedBirthday = localStorage.getItem("birthday");
+	if (storedBirthday === null) {
+		askBirthday();		
+	} else {
+		birthday = new Date(storedBirthday);
+	}
+	var storedLifespan = localStorage.getItem("lifespan");
+	if (storedLifespan === null) {
+		askLifeSpan();		
+	} else {
+		lifespan = parseInt(storedLifespan);
+	}
 	appendElements();
-	loadStorage();
+	// loadStorage();
 	updateCurrentPoint();
 }
 
-// lifespan & birthday will be input by popup.
-function loadStorage() {
-	// TODO: load from local storage
-	lifespan = 80;
-	birthday = new Date("1992-02-01");
-	// TODO: show popup dialog
+function askBirthday() {
+	var userBirthdayString = window.prompt("When is your birthday?", "1992-02-01");
+	var userBirthday = new Date(userBirthdayString);
+	if (userBirthday.toString() === "Invalid Date") {
+		askBirthday();
+		return;
+	}
+	birthday = userBirthday;
+	localStorage.setItem("birthday", userBirthdayString);
 }
+
+function askLifeSpan() {
+	var userLifeSpan = parseInt(window.prompt("How long will you live?", "65"));
+	if (!((userLifeSpan != NaN) && (userLifeSpan > 0) && (userLifeSpan < 300))) {
+		askLifeSpan();
+		return;
+	}
+	lifespan = userLifeSpan;
+	localStorage.setItem("lifespan", lifespan);
+}
+
 
 // Update calender from birthday
 function updateCurrentPoint() {
