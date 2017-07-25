@@ -6,12 +6,54 @@ $guideFontSize: 6pt;
 html, body {
 	width: 100%;
 	height: 100%;
-	margin: 0;
+	margin: 0px;
+}
+
+#header {
+	position: fixed;
+	margin: 64px;
+}
+
+#menu {
+	position: fixed;
+	right: 16px;
+	bottom: 16px;
+	opacity: 0.05;
+	font-size: 10pt;
+	font-weight: lighter;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+#menu:hover {
+	opacity: 1.0;
+}
+
+#wrapper {
+	width: 520px;
+	margin: 0px auto 0;
+    padding-top: 20%;
+}
+@media screen and (max-width: 520px) {
+	#wrapper {
+		width: 80%;
+		margin: 20px auto 0;
+	}
+}
+
+#center {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 100% 0 0;
 }
 
 #box {
-	width: calc( 100% - #{$boxMargin} );
-	height: calc( 100% - #{$boxMargin} );
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
 	display: flex;
 	flex-direction: column;
