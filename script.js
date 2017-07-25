@@ -26,7 +26,7 @@ window.onload = function() {
 function askBirthday() {
 	var userBirthdayString = window.prompt("When is your birthday?", "1992-02-01");
 	var userBirthday = new Date(userBirthdayString);
-	if (userBirthday.toString() === "Invalid Date") {
+	if ((userBirthday.toString() === "Invalid Date") || (userBirthdayString == null)) {
 		askBirthday();
 		return;
 	}
