@@ -19,7 +19,6 @@ window.onload = function() {
 		lifespan = parseInt(storedLifespan);
 	}
 	appendElements();
-	// loadStorage();
 	updateCurrentPoint();
 }
 
