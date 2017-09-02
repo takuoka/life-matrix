@@ -20,6 +20,13 @@ window.onload = function() {
 	}
 	appendElements();
 	updateCurrentPoint();
+	setupMenu();
+}
+
+function setupMenu() {
+	var menuButton = document.getElementById("menu");
+	menuButton.addEventListener("click", onClickMenu, false);
+
 }
 
 function onClickMenu() {
